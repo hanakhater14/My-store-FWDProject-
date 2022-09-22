@@ -1,0 +1,14 @@
+<div class="product-container" >
+    <a routerLink="/item-detail" (click)="setClickedProduct(product)" ><img src="{{product.url}}" alt="" class="product-image" ></a>
+    <h3>{{product.name}}</h3>
+    <h4>{{product.price}}$</h4>
+    <select name="quantity" id="" style="width: 60px; margin-bottom: 8px;" [(ngModel)]="quantity" (ngModelChange)="onChange(product)">
+        <option  value="1">1</option>
+        <option  value="2">2</option>
+        <option  value="3">3</option>
+        <option  value="4">4</option>
+        <option  value="5">5</option>
+    </select>
+    <button class="buttonhover" (click)="addtocart(product)">Add to cart</button>
+    <button class="buttonhover" (click)="favoritProduct.emit(product)">Mark as favorite</button>
+</div>

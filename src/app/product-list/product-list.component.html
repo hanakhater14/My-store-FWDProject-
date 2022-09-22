@@ -1,0 +1,6 @@
+<app-top-bar></app-top-bar>
+<div class="product-container" style="display: flex; flex-wrap: wrap;">
+
+<app-product-item class="product-index" *ngFor="let p of products" [product]="p" (favoritProduct)="addToFavorit(p)" >{{p.name}}</app-product-item>
+
+</div>
