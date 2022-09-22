@@ -30,9 +30,9 @@ quantity=1;
     product.quantity=this.quantity;
   }
   addtocart(product:product){
-  product.quantity=this.quantity;
-  this.CartService.addProductToCart(product);
-  alert("Added to cart!")
+    product.quantity=this.quantity;
+    this.CartService.addProductToCart(product);
+    alert("Added to cart!")
   console.log(this.CartService.getCartItems());
   }
   setClickedProduct(product:product){

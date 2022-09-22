@@ -26,7 +26,7 @@ quantity=1;
     this.product=this.productService.getClickedProduct();
   }
   addtocart(product:product){
-    this.product.quantity=this.quantity;
+    product.quantity=this.quantity;
     this.cartService.addProductToCart(product);
     alert("Added to cart!")
     }
