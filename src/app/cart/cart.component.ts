@@ -49,5 +49,6 @@ export class CartComponent implements OnInit {
       this.totalPrice -= product.price * product.quantity;
       this.user.totalCartPrice = this.totalPrice;
     }
+    alert(product.name +" is removed from cart")
   }
 }
