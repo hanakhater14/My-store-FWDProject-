@@ -11,7 +11,7 @@ import { ProductHTTPService } from '../services/product-http.service';
 export class ProductItemComponent implements OnInit {
   @Input() product: product;
   @Output() favoritProduct = new EventEmitter();
-  quantity =1;
+  quantity = 1;
 
   constructor(private CartService: CartServiceService, private productService: ProductHTTPService) {
     this.product = {
@@ -26,12 +26,12 @@ export class ProductItemComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  onChange(quantity:string) {
+  onChange(quantity: string) {
     console.log(quantity);
-    this.quantity=Number(quantity);
+    this.quantity = Number(quantity);
   }
   addtocart(product: product) {
-    this.CartService.addProductToCart(product,this.quantity);
+    this.CartService.addProductToCart(product, this.quantity);
     alert("Added to cart!")
     console.log(this.CartService.getCartItems());
     console.log(product);

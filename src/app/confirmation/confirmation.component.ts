@@ -9,17 +9,17 @@ import { user } from 'src/models/user';
   styleUrls: ['./confirmation.component.css']
 })
 export class ConfirmationComponent implements OnInit {
-  user:user;
-  constructor(private userService:UserserviceService) {
-    this.user={
-      fullName:"",
-      totalCartPrice:0
+  user: user;
+  constructor(private userService: UserserviceService) {
+    this.user = {
+      fullName: "",
+      totalCartPrice: 0
     }
   }
-  
-   
+
+
   ngOnInit(): void {
-    this.user=this.userService.getUserData();
+    this.user = this.userService.getUserData();
     console.log(this.user);
   }
 

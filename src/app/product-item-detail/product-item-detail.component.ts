@@ -9,25 +9,25 @@ import { product } from 'src/models/product';
   styleUrls: ['./product-item-detail.component.css']
 })
 export class ProductItemDetailComponent implements OnInit {
-product:product;
-quantity=1;
-  constructor(private productService:ProductHTTPService,private cartService:CartServiceService) { 
-    this.product={
-      id:0,
-      name:"",
-      price:0,
-      url:"",
-      description:"",
-      quantity:0
+  product: product;
+  quantity = 1;
+  constructor(private productService: ProductHTTPService, private cartService: CartServiceService) {
+    this.product = {
+      id: 0,
+      name: "",
+      price: 0,
+      url: "",
+      description: "",
+      quantity: 0
     }
   }
 
   ngOnInit(): void {
-    this.product=this.productService.getClickedProduct();
+    this.product = this.productService.getClickedProduct();
   }
-  addtocart(product:product){
-    this.cartService.addProductToCart(product,this.quantity);
+  addtocart(product: product) {
+    this.cartService.addProductToCart(product, this.quantity);
     alert("Added to cart!")
-    }
+  }
 
 }

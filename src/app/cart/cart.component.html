@@ -1,29 +1,32 @@
 <app-top-bar></app-top-bar>
 <div style="display:flex; flex-direction: row;">
-<div *ngFor="let product of cartItems" style="display:flex; flex-direction: row; margin-top:50px;">
-    <div>
-    <br>
-    <img src="{{product.url}}" alt="">
+    <div *ngFor="let product of cartItems" style="display:flex; flex-direction: row; margin-top:50px;">
+        <div>
+            <br>
+            <img src="{{product.url}}" alt="">
+        </div>
+        <div style="margin-left: 30px;">
+            <h3> {{product.name}}</h3>
+            <h2> {{product.price}}$</h2>
+            <h2> Amount</h2> <input type="text" style="width: 20px;" value="{{product.quantity}}">
+            <button (click)="removeProduct(product)">remove</button>
+        </div>
     </div>
-    <div style="margin-left: 30px;">
-    <h3>   {{product.name}}</h3>
-    <h2>   {{product.price}}$</h2>
-    <h2>   Amount</h2> <input type="text" style="width: 20px;" value="{{product.quantity}}" >
-    <button (click)="removeProduct(product)">remove</button>
-   </div>
-</div>
-<br>
-<div>
-<form #form="ngForm" (ngSubmit)="onSubmit()" style="margin-left: 50px; margin-top:50px;">
-    <label>full name</label><br>
-    <input name="fullname" type="text" required minlength="3"  placeholder="(minimum 3 characters)" [(ngModel)]="fullName"><br>
-    <label>address</label><br>
-    <input name="address" type="text" required minlength="6"  placeholder="(minimum 6 characters)" [(ngModel)]="address" ><br>
-    <label>credit card number</label><br>
-    <input name="creditcardnum" type="number" required maxlength="16" minlength="16"  placeholder="(16-digit number)" [(ngModel)]="credit"><br>
-    <h6>we'll never share your payment details with anyone else</h6><br>
-    <button  type="submit" [disabled]="form.invalid || cartItems.length===0" >submit</button><br>
-</form>
-</div>
+    <br>
+    <div>
+        <form #form="ngForm" (ngSubmit)="onSubmit()" style="margin-left: 50px; margin-top:50px;">
+            <label>full name</label><br>
+            <input name="fullname" type="text" required minlength="3" placeholder="(minimum 3 characters)"
+                [(ngModel)]="fullName"><br>
+            <label>address</label><br>
+            <input name="address" type="text" required minlength="6" placeholder="(minimum 6 characters)"
+                [(ngModel)]="address"><br>
+            <label>credit card number</label><br>
+            <input name="creditcardnum" type="number" required maxlength="16" minlength="16"
+                placeholder="(16-digit number)" [(ngModel)]="credit"><br>
+            <h6>we'll never share your payment details with anyone else</h6><br>
+            <button type="submit" [disabled]="form.invalid || cartItems.length===0">submit</button><br>
+        </form>
+    </div>
 </div>
 <h1>total : {{totalPrice}}$</h1>
