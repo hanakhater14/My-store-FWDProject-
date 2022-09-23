@@ -2,7 +2,7 @@
     <a routerLink="/item-detail" (click)="setClickedProduct(product)" ><img src="{{product.url}}" alt="" class="product-image" ></a>
     <h3>{{product.name}}</h3>
     <h4>{{product.price}}$</h4>
-    <select name="quantity" id="" style="width: 60px; margin-bottom: 8px;" [(ngModel)]="quantity" (ngModelChange)="onChange(product)">
+    <select name="quantity" id="" style="width: 60px; margin-bottom: 8px;" [ngModel]="quantity" (ngModelChange)="quantity=$event">
         <option  value="1">1</option>
         <option  value="2">2</option>
         <option  value="3">3</option>

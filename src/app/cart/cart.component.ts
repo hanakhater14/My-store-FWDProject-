@@ -40,7 +40,6 @@ onSubmit(){
  this.router.navigate(['/confirmation']);
 }
 removeProduct(product:product){
-  console.log(this.cartItems.length);
   this.cartService.removeProduct(product);
   if(this.cartItems.length==0){
   this.totalPrice=0;

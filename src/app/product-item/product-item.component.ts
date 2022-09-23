@@ -9,33 +9,34 @@ import { ProductHTTPService } from '../services/product-http.service';
   styleUrls: ['./product-item.component.css']
 })
 export class ProductItemComponent implements OnInit {
-@Input() product:product;
-@Output() favoritProduct = new EventEmitter();
-quantity=1;
+  @Input() product: product;
+  @Output() favoritProduct = new EventEmitter();
+  quantity =1;
 
-  constructor(private CartService:CartServiceService ,private productService:ProductHTTPService) {
-    this.product={
+  constructor(private CartService: CartServiceService, private productService: ProductHTTPService) {
+    this.product = {
       id: 0,
       name: "",
       price: 0,
       url: "",
       description: "",
-      quantity:0
+      quantity: 0
     }
-   }
+  }
 
   ngOnInit(): void {
   }
-  onChange(product:product){
-    product.quantity=this.quantity;
+  onChange(quantity:string) {
+    console.log(quantity);
+    this.quantity=Number(quantity);
   }
-  addtocart(product:product){
-    product.quantity=this.quantity;
-    this.CartService.addProductToCart(product);
+  addtocart(product: product) {
+    this.CartService.addProductToCart(product,this.quantity);
     alert("Added to cart!")
-  console.log(this.CartService.getCartItems());
+    console.log(this.CartService.getCartItems());
+    console.log(product);
   }
-  setClickedProduct(product:product){
-  this.productService.setClickedProduct(product)
+  setClickedProduct(product: product) {
+    this.productService.setClickedProduct(product)
   }
 }
