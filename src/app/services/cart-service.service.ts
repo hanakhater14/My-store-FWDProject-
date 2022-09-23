@@ -24,7 +24,10 @@ export class CartServiceService {
       this.CartItems.push(product);
     }
   }
-
+newCartQunatity(product:product,quantity:number){
+  const index = this.CartItems.findIndex(x => x.id === product.id);
+  this.CartItems[index].quantity=quantity;
+}
   getCartItems() {
     return this.CartItems;
   }

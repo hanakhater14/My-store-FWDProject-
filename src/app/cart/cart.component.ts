@@ -18,17 +18,27 @@ export class CartComponent implements OnInit {
   user: user;
   credit: string = '';
 
+
   constructor(private cartService: CartServiceService, private userService: UserserviceService, private router: Router) {
     this.user = {
       fullName: "",
       totalCartPrice: 0
     }
+    
   }
-
   ngOnInit(): void {
     this.cartItems = this.cartService.getCartItems();
     for (let i = 0; i < this.cartItems.length; i++) {
-      this.totalPrice += this.cartItems[i].quantity * this.cartItems[i].price;
+      this.totalPrice += Number((this.cartItems[i].quantity * this.cartItems[i].price).toFixed(3));
+    }
+  }
+  quantityChange(product:product,quantity:number){
+    console.log("enter");
+    this.cartService.newCartQunatity(product,quantity);
+    console.log(this.cartItems);
+    this.totalPrice=0;
+    for (let i = 0; i < this.cartItems.length; i++) {
+      this.totalPrice += Number((this.cartItems[i].quantity * this.cartItems[i].price).toFixed(3));
     }
   }
   onSubmit() {
